@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        int[] a=new int[3];
+        Scanner sc=new Scanner(System.in);
+        for(int i=0;i<a.length;i++)
+        {
+            a[i]=sc.nextInt();
+        }
+        int unit,ten,hun,thou;
+        unit=a[0]%10;
+        ten=(a[0]/10)%10;
+        hun=(a[0]/100)%10;
+        thou=a[0]/1000;
+        for(int i=1;i<a.length;i++)
+        {
+            if(unit<a[i]%10)
+            {
+                unit=a[i]%10;
+            }
+            if(ten>(a[i]/10)%10)
+            {
+                ten=(a[i]/10)%10;
+            }
+            if(hun<(a[i]/100)%10)
+            {
+                hun=(a[i]/100)%10;
+            }
+            if(thou>a[i]/1000)
+            {
+                thou=a[i]/1000;
+            }
+        }
+        System.out.println(thou+""+hun+""+ten+""+unit);
+    }
+}
